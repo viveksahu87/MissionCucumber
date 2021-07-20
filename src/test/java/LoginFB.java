@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginFB {
 
     public WebDriver driver;
+    public static int i =0;
     @Before
     public void setup(){
         //initializa driver
@@ -33,13 +34,14 @@ public class LoginFB {
 
     @When("user enter {string}")
     public void user_enter(String string) {
-
+        System.out.println("String u or p  used: " + string);
         // Write code here that turns the phrase above into concrete actions
       //  throw new io.cucumber.java.PendingException();
     }
 
-    @When("user click on login button")
+    @When("^user click on login button$")
     public void user_click_on_login_button() {
+     System.out.println("TRY TRY UNTIL YOU SUCCEED");
         // Write code here that turns the phrase above into concrete actions
        // throw new io.cucumber.java.PendingException();
     }
@@ -56,20 +58,22 @@ public class LoginFB {
      //   throw new io.cucumber.java.PendingException();
     }
 
-    @When("user enter username and password")
+   /* @When("user enter username and password")
     public void user_enter_username_and_password(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-      //  throw new io.cucumber.java.PendingException();
+      System.out.println("Password used: " + dataTable.toString());
+    }*/
+
+    @When("user enter {string} and {string}")
+    public void user_enter_and(String string, String string2) {
+        System.out.println("username used: " + string + "| Password used is : " + string2);
+        System.out.println("iteration : " + i++ );
+
     }
+
     @After
     public void Quit(){
         //driver.quit
         driver.quit();
+        System.out.println("final value of iteration : " + i );
     }
 }
