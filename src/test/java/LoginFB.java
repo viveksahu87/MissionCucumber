@@ -70,10 +70,9 @@ public class LoginFB {
     }
 
     @After
-    public void Quit(){
-        //driver.quit
+    public void tearDown(){
         driver.quit();
-        System.out.println("final value of iteration : " + i );
+       // System.out.println("final value of iteration : " + i );
         }
 
 

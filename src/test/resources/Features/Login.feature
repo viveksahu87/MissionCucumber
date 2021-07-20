@@ -8,11 +8,11 @@ Feature: Login to application under test
 @smoke
 Scenario: Positive validation for successful login
 
-  When user enter "username"
-  And  user enter "password"
-  And user click on login button
-  Then validate successful login message
-  And user is able to see profile page
+   When user enter "username"
+   And  user enter "password"
+   And user click on login button
+   Then validate successful login message
+   And user is able to see profile page
 
 
 
