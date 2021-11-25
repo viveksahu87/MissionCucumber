@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginFB {
 
-    public WebDriver driver;
+    public static WebDriver driver;
     public static int i =0;
     @Before
     public void setup(){

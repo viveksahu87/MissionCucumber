@@ -20,7 +20,6 @@ public class RT2 {
 
         try {
 
-
             //Implicit wait
             driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             // ways to get to the url     //driver.get("https://www.amazon.in/");
@@ -53,17 +52,18 @@ public class RT2 {
             //Capture screenshot
             //commons.io import is necessary we have imported and added in the pom dependencies
             File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            System.out.println(" ABSOLUTE PATH OF THE FILE "+scrFile.getAbsoluteFile());
             String currenttimestamp = ts.format(System.currentTimeMillis());
             FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "\\test-output\\screengrabs\\" + currenttimestamp + ".jpg"));
-           
+
 
             //****************Exiting the Script******************
             Thread.sleep(2000);
-            driver.quit();
+            driver.close();
         } catch (Exception e) {
             System.out.println("Exception aya " + e.getStackTrace());
             System.out.println(e.getMessage());
-            driver.quit();
+            driver.close();
         }
     }
 }
